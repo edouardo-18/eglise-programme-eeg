@@ -1,0 +1,368 @@
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+/* BODY */
+body {
+    background: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    font-family: "Times New Roman", serif;
+    overflow-x: hidden;
+}
+
+/* PAGE */
+.page {
+    width: 8.5in;
+    min-height: 11in; /* 🔥 au lieu de height fixe */
+    background: #fff;
+    position: relative;
+    padding: 2cm;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    box-sizing: border-box;
+    page-break-after: always; /* 🔥 pour impression */
+}
+
+/* HEADER */
+.header-feuille {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 1cm;
+    background: #fff;
+    border-bottom: 1px solid #000;
+    box-sizing: border-box;
+    z-index: 10;
+}
+
+/* Logos */
+.header-feuille .logo img {
+    width: 80px;
+    height: auto;
+}
+
+/* Texte centre header */
+.texte-centre {
+    text-align: center;
+    flex: 1;
+}
+
+.texte-centre h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.texte-centre h2 {
+    margin: 5px 0;
+    font-size: 16px;
+    font-weight: normal;
+}
+
+
+
+/* CONTENU */
+.contenu {
+    margin-top: 35px;
+    margin-bottom: 120px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Footer */
+.footer-feuille {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    padding: 10px 1cm;
+    background: #fff;
+    border-top: 1px solid #000;
+    box-sizing: border-box;
+}
+
+.footer-feuille a {
+    color: #000;
+    text-decoration: none;
+}
+
+/* Impression */
+@media print {
+    body {
+        background: none;
+        padding: 0;
+        overflow: visible;
+    }
+
+    .page {
+        box-shadow: none;
+        margin: 0;
+    }
+}
+/* FORMULAIRE */
+.form-programme {
+    width: 8.5in;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    font-family: "Times New Roman", serif;
+}
+
+.form-programme label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-programme input {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+.form-programme button {
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* TEXTE PROGRAMME */
+.programme-texte {
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px; /* MAXIMUM */
+    margin-bottom: 20px;
+    word-wrap: break-word;
+}
+
+/* NE PAS IMPRIMER LE FORMULAIRE */
+@media print {
+    .form-programme {
+        display: none;
+    }
+}
+
+/* FORMULAIRE UNIQUE */
+.form-editeur {
+    width: 8.5in;
+    margin: 20px auto;
+    padding: 15px;
+    background: #fff;
+    border: 1px solid #ccc;
+    font-family: "Times New Roman", serif;
+}
+
+.form-editeur h3 {
+    margin-top: 0;
+}
+
+.form-editeur label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.form-editeur input,
+.form-editeur textarea {
+    width: 100%;
+    padding: 8px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.form-editeur button {
+    margin-top: 10px;
+    padding: 8px 15px;
+    cursor: pointer;
+}
+
+/* PROGRAMME */
+.programme-texte {
+    text-align: center;
+    font-weight: bold;
+    font-size: 17px; /* MAX */
+    margin-bottom: 20px;
+}
+
+/* PARTIES */
+.partie {
+    margin-bottom: 25px;
+}
+
+.partie-titre {
+    font-weight: bold;
+    font-size: 15px;
+    margin-bottom: 5px;
+}
+
+.partie-responsable {
+    font-weight: bold;
+}
+
+.partie-liste {
+    margin-left: 25px;
+}
+
+.partie-liste li {
+    margin-bottom: 4px;
+}
+
+/* Impression */
+@media print {
+    .form-editeur {
+        display: none;
+    }
+}
+
+/* BLOCS PARTIE (FORMULAIRE) */
+.bloc-partie {
+    border: 1px dashed #aaa;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+.bloc-partie label {
+    font-weight: bold;
+    display: block;
+    margin-top: 8px;
+}
+
+.bloc-partie input,
+.bloc-partie textarea {
+    width: 100%;
+    padding: 6px;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+/* Impression */
+@media print {
+    .form-editeur {
+        display: none;
+    }
+}
+/* =========================================================
+   🟢 FIX IMPRESSION PRO (PDF CLEAN + PAGE BREAK CONTROL)
+   ========================================================= */
+
+@media print {
+
+    /* fond propre */
+    body {
+        background: white !important;
+    }
+
+    /* chaque page A4 bien séparée */
+    .page {
+        page-break-after: always;
+        break-after: page;
+        box-shadow: none !important;
+    }
+
+    /* header reste visible sur chaque page */
+    .header-feuille {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* footer reste en bas */
+    .footer-feuille {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+
+    /* cacher formulaire en impression */
+    .form-editeur,
+    .form-programme {
+        display: none !important;
+    }
+
+    /* éviter coupure bizarre du contenu */
+    .contenu {
+        page-break-inside: avoid;
+    }
+}
+
+
+/* =========================================================
+   🟡 BOUTON PDF (OPTIONNEL MAIS PRO)
+   ========================================================= */
+
+.pdf-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    background: black;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    z-index: 9999;
+    font-family: "Times New Roman", serif;
+}
+
+.pdf-btn:hover {
+    opacity: 0.8;
+}
+
+@media print {
+    .pdf-btn {
+        display: none !important;
+    }
+
+    .form-editeur,
+    .form-programme {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+
+    body {
+        padding: 10px;
+        overflow-x: hidden;
+    }
+
+    .page {
+        width: 100%;
+        height: auto;
+        min-height: auto;
+        box-shadow: none;
+        padding: 15px;
+    }
+
+    .header-feuille {
+        position: relative;
+    }
+
+    .footer-feuille {
+        position: relative;
+    }
+
+    .texte-centre h1 {
+        font-size: 18px;
+    }
+
+    .texte-centre h2 {
+        font-size: 14px;
+    }
+
+    .programme-texte {
+        font-size: 15px;
+    }
+}

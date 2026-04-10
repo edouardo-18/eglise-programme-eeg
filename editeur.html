@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Éditeur du programme</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<!-- FORMULAIRE UNIQUE -->
+<form class="form-editeur" onsubmit="return false;">
+    <h3>Éditeur du programme</h3>
+
+    <label>Titre du programme</label>
+    <input type="text" id="programme" placeholder="Programme du réveil de Pâques" maxlength="120">
+
+    <hr>
+
+    <!-- CONTENEUR DES PARTIES -->
+    <div id="parties-form"></div>
+
+    <button type="button" onclick="ajouterBlocPartie()">➕ Ajouter une partie</button>
+    <button type="button" onclick="genererProgramme()">📄 Générer le programme</button>
+</form>
+
+<script src="assets/js/script.js"></script>
+</body>
+</html>
